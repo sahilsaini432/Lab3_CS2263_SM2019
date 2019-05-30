@@ -15,7 +15,7 @@ help:
 	@printf " make Stack						(to build your C program)\n"
 	@printf " make test						(to run every test case)\n"
 	@printf " make test1						(to run test case 1)\n"
-	@printf " mkae test2						(to run test case 2)\n"
+	@printf " make test2						(to run test case 2)\n"
 	@printf " make test3						(to run test case 3)\n"
 
 #link our .o files to make an executable
