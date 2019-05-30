@@ -31,10 +31,10 @@ Stack.o: Stack.c
 test: test1 test2 test3
 
 test1: Stack
-	./Stack < Data/test1.input > test1.result
+	./Stack < Data/test1.input
 
 test2: Stack
-	./Stack < Data/test2.input > test2.result
+	./Stack < Data/test2.input
 
 test3: Stack
-	./Stack < Data/test3.input > test3.result
+	./Stack < Data/test3.input
