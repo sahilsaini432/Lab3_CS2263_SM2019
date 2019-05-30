@@ -1,7 +1,7 @@
 /********************
- * 
+ *
  * Sentence reversal program using Linked List based Stack
- * 
+ *
  ********************/
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,7 +28,7 @@ bool pop(Node_t **head, char **value);
 bool push(Node_t **head, const char *value);
 
 /* use void as parameters to silence the gcc warnings */
-int main(void)
+int main()
 {
     // initialize our things
     Node_t *Stack = NULL;
@@ -67,7 +67,15 @@ int main(void)
  */
 Node_t *newNode(const char *value, Node_t *next)
 {
-    return NULL;
+  char *str = strdup(value);
+  Node_t *p = NULL;
+  p = (Node_t *)calloc(1,sizeof(Node_t));
+  if (p != NULL)
+  {
+    p->value = str;
+    p->next = next;
+  }
+  return p;
 }
 
 /**
@@ -77,7 +85,10 @@ Node_t *newNode(const char *value, Node_t *next)
  */
 Node_t *deleteNode(Node_t *current, char **value)
 {
-    return NULL;
+  *value = current -> value;
+  Node_t *next = current -> next;
+  free(current);
+  return next;
 }
 
 /**
@@ -88,7 +99,16 @@ Node_t *deleteNode(Node_t *current, char **value)
  */
 bool pop(Node_t **Stack, char **value)
 {
+  if (*Stack == NULL)
+  {
     return false;
+  }
+  else
+  {
+    Node_t *next = deleteNode(*Stack,value);
+    (*Stack) = next;
+    return true;
+  }
 }
 
 /**
@@ -98,5 +118,14 @@ bool pop(Node_t **Stack, char **value)
  */
 bool push(Node_t **Stack, const char *value)
 {
+  Node_t *addNode = newNode(value,*Stack);
+  (*Stack) = addNode;
+  if (addNode == NULL)
+  {
     return false;
+  }
+  else
+  {
+    return true;
+  }
 }
